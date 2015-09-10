@@ -2,9 +2,12 @@ package be.vdab.web;
 
 import java.util.logging.Logger;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import be.vdab.services.FiliaalService;
 
 @Controller
 @RequestMapping("/filialen")
@@ -30,5 +33,14 @@ class FiliaalController {
 	@RequestMapping(value = "toevoegen", method = RequestMethod.GET)
 	String createForm() {
 		return TOEVOEGEN_VIEW;
+	}
+
+	private final FiliaalService filiaalService;
+	@Autowired
+	FiliaalController(FiliaalService filiaalService) {
+		// Spring injecteert de parameter filiaalService met de bean die de
+		// interface
+		// FiliaalService implementeert: FiliaalServiceImpl
+		this.filiaalService = filiaalService;
 	}
 }
