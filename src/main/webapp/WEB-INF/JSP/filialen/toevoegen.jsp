@@ -6,6 +6,9 @@
 <head>
 <v:head title='Filiaal toevoegen' />
 </head>
+<form method='post' action='<c:url value="/filialen"/>'>
+<input type='submit' value='Toevoegen'>
+</form>
 <body>
 	<v:menu />
 	<h1>Filiaal toevoegen</h1>
